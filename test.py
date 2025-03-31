@@ -1,4 +1,19 @@
 from src.demos.data_creation import DataCreator
+#from src.demos.recognize_amplitude_frequence import recognize_amplitude_frequence
+from argparse import ArgumentParser
+
+parser = ArgumentParser("Test")
+parser.add_argument(
+    "-i",
+    "--input",
+    type=str,
+    dest="input",
+    help="input csv",
+    required=True,
+    default="data.csv",
+)
+
+args = parser.parse_args()
 
 ###initialising variables
 amp=1
@@ -24,6 +39,10 @@ dc.create_data()
 dc.To_CSV()
 
 
-
-print(dc.data)
+Data=dc.data
+print(Data)
 ###
+
+###Using function recognize_amplitude_frequence
+Data_csv=args.input
+#recognize_amplitude_frequence(Data_csv)
