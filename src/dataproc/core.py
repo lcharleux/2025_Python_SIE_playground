@@ -5,4 +5,6 @@ import pandas as pd
 from math import pi
 
 def say_hi():
-    print("Hi buddies")
+    out = "Hi buddies"
+    print(out)
+    return out
