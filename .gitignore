@@ -3,3 +3,4 @@ src/dummy_data.csv
 src/dataproc.egg-info/*
 *.json
 
+doc/data_processing/data/*.csv
