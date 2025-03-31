@@ -2,23 +2,10 @@
 import os
 import pandas as pd
 # import data_creation as dc
-
+from dataproc.core import recognize_amplitude_frequence
 
 #cette fonction créé un dataframe à partir du fichier .csv et l'affiche
-def recognize_amplitude_frequence (path_file : str):
-    #identifie si le fichier .csv a déjà des headers : si oui, on les garde, si non, on les ajoute
-    temp=pd.read_csv(path_file,sep=",", header=None)
-    if temp.iloc[0,0]=="t":
-        data=pd.read_csv(path_file,sep=",", header=0)
-    else:
-        data=pd.read_csv(path_file,sep=",", header=None, names=["t", "x"])
 
-    dim=data.shape
-    print(data)
-    for i in range(dim[0]):
-        t =data.iloc[i,data.columns.get_loc("t")]
-        x=data.iloc[i,data.columns.get_loc("x")]
-        print (f"Signal {i} au temps {t} a une amplitude de {x} ")
 
 
 if __name__ == "__main__":

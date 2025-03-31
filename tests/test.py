@@ -1,5 +1,5 @@
-from src.demos.data_creation import DataCreator
-from src.demos.recognize_amplitude_frequence import recognize_amplitude_frequence
+from dataproc.core import DataCreator
+from dataproc.core import recognize_amplitude_frequence
 import os
 ###initialising variables
 amp=1
