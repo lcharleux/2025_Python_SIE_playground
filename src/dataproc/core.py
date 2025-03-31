@@ -14,6 +14,8 @@ def say_hi():
 
 class DataCreator:
     #créer la fonction du signal
+    
+    @staticmethod
     def func (t,amp,freq):
         x = amp * np.cos(2* pi * freq * t)
         return x
@@ -37,7 +39,7 @@ class DataCreator:
         noise = self.noise
         duration = self.duration
         t = np.linspace(0., duration, 1000)
-        x = func (t, amp, freq) 
+        x = self.func (t, amp, freq) 
         x += noise * np.random.randint(0, 1, size=1000)
         self.data = {"t":t, "x":x}
 
@@ -88,5 +90,5 @@ def recognize_amplitude_frequence (path_file : str):
     #renvoyer un modèle fitté pour chaque fichier       
     time=data["t"]
     valeurs_signal=data["x"]
-    curve_fit(func,time,valeurs_signal)
+    curve_fit(DataCreator.func,time,valeurs_signal)
 
