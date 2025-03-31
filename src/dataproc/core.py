@@ -14,6 +14,8 @@ def say_hi():
 
 class DataCreator:
     #créer la fonction du signal
+    
+    @staticmethod
     def func (t,amp,freq):
         x = amp * np.cos(2* pi * freq * t)
         return x
