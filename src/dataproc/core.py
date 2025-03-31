@@ -3,6 +3,7 @@
 import numpy as np
 import pandas as pd
 from math import pi
+import json
 
 from scipy.optimize import curve_fit
 
@@ -40,9 +41,32 @@ class DataCreator:
         x += noise * np.random.randint(0, 1, size=1000)
         self.data = {"t":t, "x":x}
 
-    def To_CSV(self):
+    def To_CSV(self, path = "data.csv"):
         data = self.data
-        pd.DataFrame(data).to_csv("data.csv", index=False)
+        pd.DataFrame(data).to_csv(path, index=False)
+
+class BatchCreator:
+    def __init__(self, metadata = {}):
+        self.data = []
+        self.metadata = metadata
+    
+    def create_data(self, ntests = 1):
+        for i in range(ntests):
+            self.data.append(DataCreator(**self.metadata))
+    
+    def to_csv(self, workdir = "./"):
+        for i, d in enumerate(self.data):
+            d.create_data()
+            pos = str(i).zfill(3)
+            path = f"{workdir}data_{pos}.csv"
+            d.To_CSV(path=path)
+
+    
+    def dump_metadata(self, workdir = "./"):
+        md = self.metadata
+        with open(f"{workdir}metadata.json", "w") as f:
+            f.write(json.dumps(md))
+
 
 
 def recognize_amplitude_frequence (path_file : str):
