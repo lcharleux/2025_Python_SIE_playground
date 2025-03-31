@@ -28,9 +28,8 @@ class DataCreator:
 
     def To_CSV(self):
         data = self.data
-        pd.DataFrame(data).to_csv("data.csv")
-
-# dc = DataCreator(amp = 3)
+        pd.DataFrame(data).to_csv("data.csv", index=False)
+# dc = DataCreator(amp = 3), index
 # dc.create_data()
 
     
