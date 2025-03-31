@@ -13,7 +13,8 @@ class DataCreator:
         amp = self.amp
         freq = self.freq
         noise = self.noise
-        return f"<DataCreator: freq={freq}, amp={amp}, noise={noise}>"
+        duration = self.duration
+        return f"<DataCreator: freq={freq}, amp={amp}, noise={noise}, duration={duration}>"
     
     def create_data(self):
         amp = self.amp
@@ -22,10 +23,15 @@ class DataCreator:
         duration = self.duration
         t = np.linspace(0., duration, 1000)
         x = amp * np.cos(2* pi * freq * t) 
+        x += noise * np.random.randint(0, 1, size=1000)
         self.data = {"t":t, "x":x}
 
-dc = DataCreator(amp = 3)
-dc.create_data()
+    def To_CSV(self):
+        data = self.data
+        pd.DataFrame(data).to_csv("data.csv")
+
+# dc = DataCreator(amp = 3)
+# dc.create_data()
 
     
 
