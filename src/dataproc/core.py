@@ -4,6 +4,8 @@ import numpy as np
 import pandas as pd
 from math import pi
 import json
+import matplotlib.pyplot as plt
+
 
 def say_hi():
     out = "Hi buddies"
@@ -76,3 +78,20 @@ def recognize_amplitude_frequence (path_file : str):
         t=data.iloc[i,data.columns.get_loc("t")]
         x=data.iloc[i,data.columns.get_loc("x")]
         print (f"Signal {i} au temps {t} a une valeur de {x} ")
+
+
+
+class Plotter:
+    def __init__(self, x=None, y=None):
+        self.x = x
+        self.y = y
+
+    def set_labels(self, xlabel, ylabel):
+        self.xlabel = xlabel
+        self.ylabel = ylabel
+    def plot(self):
+        plt.plot(self.x, self.y)
+        plt.show()
+    def save(self,name="plot.png"):
+        plt.plot(self.x, self.y)
+        plt.savefig(name)
