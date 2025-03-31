@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 from math import pi
 import json
-
+import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 
 def say_hi():
