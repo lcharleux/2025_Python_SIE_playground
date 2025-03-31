@@ -5,3 +5,4 @@ src/dataproc.egg-info/*
 
 doc/data_processing/data/*.csv
 doc/demos/curve_fitting.png
+doc/data_processing/data/*.png

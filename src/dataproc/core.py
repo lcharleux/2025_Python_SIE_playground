@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 from math import pi
 import json
-
+import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 
 def say_hi():
@@ -92,3 +92,18 @@ def recognize_amplitude_frequence (path_file : str):
     valeurs_signal=data["x"]
     curve_fit(DataCreator.func,time,valeurs_signal)
 
+
+class Plotter:
+    def __init__(self, x=None, y=None):
+        self.x = x
+        self.y = y
+
+    def set_labels(self, xlabel, ylabel):
+        self.xlabel = xlabel
+        self.ylabel = ylabel
+    def plot(self):
+        plt.plot(self.x, self.y)
+        plt.show()
+    def save(self,name="plot.png"):
+        plt.plot(self.x, self.y)
+        plt.savefig(name)

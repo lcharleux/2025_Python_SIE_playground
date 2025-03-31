@@ -1,5 +1,6 @@
 from dataproc.core import DataCreator
 from dataproc.core import recognize_amplitude_frequence
+from dataproc.core import Plotter
 import os
 ###initialising variables
 amp=1
@@ -60,6 +61,15 @@ liste_fichiers=os.listdir(data_dir)
 
 liste_fichiers_csv = [element for element in liste_fichiers if element.endswith(".csv")]
 print(liste_fichiers_csv)
+
+data_dict={}
+
 for element in liste_fichiers_csv:
     recognize_amplitude_frequence(data_dir+element)
+    data_dict[element]=dc.data
+    plot=Plotter(data_dict[element]["t"],data_dict[element]["x"])
+    plot.set_labels("Time","Amplitude")
+    plot.save(data_dir+element.replace(".csv",".png"))
+
+###Using class Plotter
 
