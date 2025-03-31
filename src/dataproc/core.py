@@ -86,7 +86,11 @@ def recognize_amplitude_frequence (path_file : str):
         t=data.iloc[i,data.columns.get_loc("t")]
         x=data.iloc[i,data.columns.get_loc("x")]
         print (f"Signal {i} au temps {t} a une valeur de {x} ")
-
+ 
+    #renvoyer un modèle fitté pour chaque fichier       
+    time=data["t"]
+    valeurs_signal=data["x"]
+    curve_fit(DataCreator.func,time,valeurs_signal)
 
 
 class Plotter:
