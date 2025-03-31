@@ -40,7 +40,7 @@ parser.add_argument(
     type=str,
     dest="input",
     help="input csv",
-    required=True,
+    required=False,
     default="data.csv",
 )
 parser.add_argument(
@@ -63,10 +63,3 @@ print(liste_fichiers_csv)
 for element in liste_fichiers_csv:
     recognize_amplitude_frequence(data_dir+element)
 
-
-
-
-
-# Data_csv=args.input
-
-# recognize_amplitude_frequence(Data_csv)
