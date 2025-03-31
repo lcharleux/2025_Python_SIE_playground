@@ -16,12 +16,15 @@ def recognize_amplitude_frequence (path_file : str):
     dim=data.shape
     print(data)
     for i in range(dim[0]):
-        print (f"Signal {i} au temps {data.iloc[i,data.columns.get_loc("t")]} a une amplitude de {data.iloc[i,data.columns.get_loc("x")]} ")
+        t =data.iloc[i,data.columns.get_loc("t")]
+        x=data.iloc[i,data.columns.get_loc("x")]
+        print (f"Signal {i} au temps {t} a une amplitude de {x} ")
 
 
 if __name__ == "__main__":
     #on récupère la liste des fichiers .csv dans un dossier donné
-    liste_fichiers=os.listdir(r"..\doc\data_processing\data")
+    liste_fichiers=os.listdir(r"../doc/data_processing/data")
+   
 
     # liste_fichiers_csv=[]
 
