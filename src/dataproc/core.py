@@ -4,8 +4,8 @@ import numpy as np
 import pandas as pd
 from math import pi
 import json
-import matplotlib.pyplot as plt
 
+from scipy.optimize import curve_fit
 
 def say_hi():
     out = "Hi buddies"
@@ -13,6 +13,11 @@ def say_hi():
     return out
 
 class DataCreator:
+    #créer la fonction du signal
+    def func (t,amp,freq):
+        x = amp * np.cos(2* pi * freq * t)
+        return x
+    
     def __init__(self, amp = 5, freq = 2, noise=0.1, duration=10.):
         self.amp = amp
         self.freq = freq
@@ -32,7 +37,7 @@ class DataCreator:
         noise = self.noise
         duration = self.duration
         t = np.linspace(0., duration, 1000)
-        x = amp * np.cos(2* pi * freq * t) 
+        x = func (t, amp, freq) 
         x += noise * np.random.randint(0, 1, size=1000)
         self.data = {"t":t, "x":x}
 
@@ -74,6 +79,7 @@ def recognize_amplitude_frequence (path_file : str):
 
     dim=data.shape
     print(data)
+    #lire les données et les afficher sous forme de phrases
     for i in range(dim[0]):
         t=data.iloc[i,data.columns.get_loc("t")]
         x=data.iloc[i,data.columns.get_loc("x")]
