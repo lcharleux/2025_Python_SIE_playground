@@ -1,5 +1,5 @@
 from src.demos.data_creation import DataCreator
-#from src.demos.recognize_amplitude_frequence import recognize_amplitude_frequence
+from src.demos.recognize_amplitude_frequence import recognize_amplitude_frequence
 from argparse import ArgumentParser
 
 parser = ArgumentParser("Test")
@@ -40,9 +40,10 @@ dc.To_CSV()
 
 
 Data=dc.data
-print(Data)
+#print(Data)
 ###
 
 ###Using function recognize_amplitude_frequence
 Data_csv=args.input
-#recognize_amplitude_frequence(Data_csv)
+
+recognize_amplitude_frequence(Data_csv)
