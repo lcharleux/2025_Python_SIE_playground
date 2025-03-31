@@ -17,3 +17,13 @@ pip install -e .
 ```
 
 This will install the package in editable mode, allowing you to make changes to the code without reinstalling the package.
+
+
+## Run tests
+
+Go to the folder's root and run the following command:
+
+```bash
+pytest
+```
+This will run all the tests in the `tests` folder and display the results in the terminal.
