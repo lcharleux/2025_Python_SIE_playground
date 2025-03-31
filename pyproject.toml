@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61.0", "setuptools-scm", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dataproc"
+version = "0.1"  
+description = "An SIE playground package"
+authors = [
+    { name = "Spong Bob", email = "sponge@bob.com" }
+]
+license = { text = "GPL v3" }
+readme = "README.md"
+requires-python = ">=3.10"
+
+dependencies = [
+    "numpy",
+    "scipy",
+    "matplotlib",
+    "pandas",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["dataproc"]
+
+[tool.setuptools]
+include-package-data = true
+zip-safe = false

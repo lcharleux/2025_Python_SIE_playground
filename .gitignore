@@ -1,3 +1,4 @@
 src/dummy_data.csv
 *.pyc
+src/dataproc.egg-info/*
 
