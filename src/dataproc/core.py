@@ -37,7 +37,7 @@ class DataCreator:
         noise = self.noise
         duration = self.duration
         t = np.linspace(0., duration, 1000)
-        x = func (t, amp, freq) 
+        x = self.func (t, amp, freq) 
         x += noise * np.random.randint(0, 1, size=1000)
         self.data = {"t":t, "x":x}
 
