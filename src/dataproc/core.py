@@ -49,6 +49,6 @@ def recognize_amplitude_frequence (path_file : str):
     dim=data.shape
     print(data)
     for i in range(dim[0]):
-        t =data.iloc[i,data.columns.get_loc("t")]
+        t=data.iloc[i,data.columns.get_loc("t")]
         x=data.iloc[i,data.columns.get_loc("x")]
         print (f"Signal {i} au temps {t} a une valeur de {x} ")
